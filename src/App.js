@@ -48,31 +48,26 @@ const App = () => {
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
-        
+
         <div className="navbar-nav mr-auto">
-          
+
           {showAdminBoard && (
             <div className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to={"/admin"} className="nav-link">
-                Admin 
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/listUser"} className="nav-link">
-                Danh sách User
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/movies"} className="nav-link">
-                Danh sách phim
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/addMovie"} className="nav-link">
-                Thêm phim
-              </Link>
-            </li>
+              <li className="nav-item">
+                <Link to={"/listUser"} className="nav-link">
+                  Danh sách User
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/movies"} className="nav-link">
+                  Danh sách phim
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/addMovie"} className="nav-link">
+                  Thêm phim
+                </Link>
+              </li>
 
             </div>
           )}
@@ -82,7 +77,7 @@ const App = () => {
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to={"/profile"} className="nav-link">
-              Hello  {currentUser.username}
+                Hello  {currentUser.username}
               </Link>
             </li>
             <li className="nav-item">
@@ -108,16 +103,20 @@ const App = () => {
       </nav>
 
       <div className="container mt-3">
-        <Routes> 
+        <Routes>
           <Route exact path={"/"} element={<Login />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Register />} />
           <Route exact path="/profile" element={<Profile />} />
-          <Route path="/admin" element={<BoardAdmin />} />
-          <Route path="/listUser" element={<ListUser />} />
-          <Route path="/movies" element={<ListMovie />} />
-          <Route path="/addMovie" element={<AddMovie />} />
-          <Route path="/movie/:id" element={<Movie />} />
+          {showAdminBoard &&
+            <>
+              <Route path="/listUser" element={<ListUser />} />
+              <Route path="/movies" element={<ListMovie />} />
+              <Route path="/addMovie" element={<AddMovie />} />
+              <Route path="/movie/:id" element={<Movie />} />
+            </>
+          }
+
         </Routes>
       </div>
 

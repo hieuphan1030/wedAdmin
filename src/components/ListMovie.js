@@ -99,6 +99,16 @@ const ListMovie = (props) => {
 
             },
             {
+                Header: "Nhà sản xuất",
+                accessor: "company",
+                
+            },
+            {
+                Header: "Quốc gia sản xuất",
+                accessor: "country",
+                
+            },
+            {
                 Header: "Hành động",
                 accessor: "actions",
                 Cell: (props) => {
@@ -133,7 +143,7 @@ const ListMovie = (props) => {
 
     return (
         <div className="list row">
-            <div className="col-md-8">
+            <div className="col-md-12">
                 <div className="input-group mb-3">
                     <input
                         type="text"
